@@ -27,7 +27,7 @@ class UsersTurn(Deck):
     
     def __init__(self, deck, users_hand, card):
         self.deck = deck
-        self.turn = self.hand(users_hand.hand)
+        self.turn = users_hand.hand
         self.card = card
     
     def hand(self, hand):
@@ -37,9 +37,23 @@ class UsersTurn(Deck):
             hand_dict[count] = hand[count-1]
             count +=1
         return hand_dict
+    
+    def draw_card(self, hand, deck):
+        hand.append(Deck.deal_card(self.deck))
+        
+    def choose_card(self, hand, card):
+        choice = input("Choose a card")
+        
+    # def check(self, hand, card):
+    #     for cards in hand:
+    #         if cards
+        
 
 class CompsTurn(Deck):
     pass
+    
+
+
 
 class Game(Deck):
     deck = Deck.create_deck()
@@ -51,4 +65,9 @@ class Game(Deck):
     
 new=Game()
 new1=UsersTurn(new.deck, new.users_hand, new.card)
-print(new1.turn)
+print(new1.__dict__)
+new1.draw_card(new1.turn, new1.deck)
+print(new1.__dict__)
+
+
+
