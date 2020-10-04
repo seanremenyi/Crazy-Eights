@@ -65,7 +65,7 @@ class Game(Deck):
     
 new=Game()
 new1=UsersTurn(new.deck, new.users_hand, new.card)
-print(new1.__dict__)
+print(new1.__dict__) 
 new1.draw_card(new1.turn, new1.deck)
 print(new1.__dict__)
 
