@@ -44,9 +44,9 @@ class UsersTurn(Deck):
     def choose_card(self, hand, card):
         choice = input("Choose a card")
         
-    # def check(self, hand, card):
-    #     for cards in hand:
-    #         if cards
+    def check(self, hand, card):
+        for cards in hand:
+            if cards
         
 
 class CompsTurn(Deck):
