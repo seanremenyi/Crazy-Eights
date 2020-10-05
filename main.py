@@ -29,8 +29,7 @@ class UsersTurn(Deck):
         self.deck = deck
         self.turn = users_hand.hand
         self.card = card
-        self.hand_choice = self.hand_choose(self.turn) 
-    
+
     def hand_choose(self, hand):
         hand_dict = {}
         count = 1
@@ -45,7 +44,7 @@ class UsersTurn(Deck):
     def choose_card(self, hand, card):
         choice = input("Choose a card")
         
-    def check(self, hand, card):
+    def can_play_check(self, hand, card):
         checklist = []
         for items in hand:
             checklist.append(items[0])
@@ -54,17 +53,27 @@ class UsersTurn(Deck):
             return True
         return False
         
-    def play_card(self, hand, card):
+    def play_card(self, users_card):
+        self.card = users_card
+        self.turn = self.turn.pop(self.turn.index(users_card))
+        self.hand_choice = self.hand_choose(self.turn)
     
-    def users_turn():
+    def users_turn(self):
+        print(self.card)
         print(self.hand_choice)
-        users_input = input("choose your card")
-        if check(self.turn, self.card):
+        can_play = self.can_play_check(self.turn, self.card)
+        if can_play == True:
+            users_input = input("choose your card")
+            self.play_card(self.hand_choice[int(users_input)])
+    
+        else:
+            self.draw_card(self.turn, self.deck)
+            self.hand_choose(self.turn)
+
             
     
-        
-class CompsTurn(Deck):
-    pass
+    class CompsTurn(Deck):
+        pass
     
 
 
@@ -79,9 +88,8 @@ class Game(Deck):
     
 new=Game()
 new1=UsersTurn(new.deck, new.users_hand, new.card)
-print(new1.__dict__) 
-new1.draw_card(new1.turn, new1.deck)
-print(new1.check(new1.turn, new1.card))
-
+new1.hand_choose(new1.turn)
+print(new1.users_turn())
+print(new1.__dict__)
 
 
