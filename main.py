@@ -29,14 +29,15 @@ class UsersTurn(Deck):
         self.deck = deck
         self.turn = users_hand.hand
         self.card = card
+        self.hand_choice = self.hand_choose(self.turn) 
     
-    def hand(self, hand):
+    def hand_choose(self, hand):
         hand_dict = {}
         count = 1
         while count <= len(hand):
             hand_dict[count] = hand[count-1]
             count +=1
-        return hand_dict
+        self.hand_choice = hand_dict
     
     def draw_card(self, hand, deck):
         hand.append(Deck.deal_card(self.deck))
@@ -49,11 +50,19 @@ class UsersTurn(Deck):
         for items in hand:
             checklist.append(items[0])
             checklist.append(items[1])
-        
         if card[0] in checklist or card[1] in checklist:
-            
             return True
-
+        return False
+        
+    def play_card(self, hand, card):
+    
+    def users_turn():
+        print(self.hand_choice)
+        users_input = input("choose your card")
+        if check(self.turn, self.card):
+            
+    
+        
 class CompsTurn(Deck):
     pass
     
