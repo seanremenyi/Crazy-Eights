@@ -45,9 +45,14 @@ class UsersTurn(Deck):
         choice = input("Choose a card")
         
     def check(self, hand, card):
-        for cards in hand:
-            if cards
+        checklist = []
+        for items in hand:
+            checklist.append(items[0])
+            checklist.append(items[1])
         
+        if card[0] in checklist or card[1] in checklist:
+            
+            return True
 
 class CompsTurn(Deck):
     pass
@@ -67,7 +72,7 @@ new=Game()
 new1=UsersTurn(new.deck, new.users_hand, new.card)
 print(new1.__dict__) 
 new1.draw_card(new1.turn, new1.deck)
-print(new1.__dict__)
+print(new1.check(new1.turn, new1.card))
 
 
 
