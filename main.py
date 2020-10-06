@@ -53,10 +53,9 @@ class UsersTurn(Deck):
             return True
         return False
         
-    def play_card(self, users_card):
-        self.card = users_card
-        self.turn = self.turn.pop(self.turn.index(users_card))
-        self.hand_choice = self.hand_choose(self.turn)
+    # def play_card(self, users_card):
+    #     self.card = users_card
+    #     self.hand_choice = self.hand_choose(self.turn)
     
     def users_turn(self):
         print(self.card)
@@ -64,7 +63,8 @@ class UsersTurn(Deck):
         can_play = self.can_play_check(self.turn, self.card)
         if can_play == True:
             users_input = input("choose your card")
-            self.play_card(self.hand_choice[int(users_input)])
+            self.turn.pop(self.turn.index(users_input)
+            self.hand_choose(self.turn)
     
         else:
             self.draw_card(self.turn, self.deck)
