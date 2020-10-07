@@ -43,32 +43,43 @@ class UsersTurn(Deck):
         
     def choose_card(self, hand, card):
         choice = input("Choose a card")
+
+    def turrn(self):
+        choice = input("choose a card")
         
-    def can_play_check(self, hand, card):
-        checklist = []
-        for items in hand:
-            checklist.append(items[0])
-            checklist.append(items[1])
-        if card[0] in checklist or card[1] in checklist:
-            return True
-        return False
         
-    # def play_card(self, users_card):
-    #     self.card = users_card
-    #     self.hand_choice = self.hand_choose(self.turn)
+
+
+
+
+
+
+
+
+        
+    # def can_play_check(self, hand, card):
+    #     checklist = []
+    #     for items in hand:
+    #         checklist.append(items[0])
+    #         checklist.append(items[1])
+    #     if card[0] in checklist or card[1] in checklist:
+    #         return True
+    #     return False
+        
+    # # def play_card(self, users_card):
+    # #     self.card = users_card
+    # #     self.hand_choice = self.hand_choose(self.turn)
     
-    def users_turn(self):
-        print(self.card)
-        print(self.hand_choice)
-        can_play = self.can_play_check(self.turn, self.card)
-        if can_play == True:
-            users_input = input("choose your card")
-            self.turn.pop(self.turn.index(users_input)
-            self.hand_choose(self.turn)
-    
-        else:
-            self.draw_card(self.turn, self.deck)
-            self.hand_choose(self.turn)
+    # def users_turn(self):
+    #     print(self.card)
+    #     print(self.hand_choice)
+    #     can_play = self.can_play_check(self.turn, self.card)
+    #     if can_play == True:
+    #         users_input = input("choose your card")
+    #         self.turn.pop(self.turn.index(users_input)
+    #     else:
+    #         self.draw_card(self.turn, self.deck)
+    #         self.hand_choose(self.turn)
 
             
     
